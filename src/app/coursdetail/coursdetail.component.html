@@ -1,0 +1,113 @@
+<body>
+    
+
+
+    <app-navbar></app-navbar>
+    
+  
+    
+    <!-- Header End -->
+   
+    <!--================End Home Banner Area =================-->
+    
+    <!--================Course Details Area =================-->
+    <section class="course_details_area p-120">
+        <div class="container">
+            <div class="row course_details_inner">
+                <div class="col-lg-8">
+                    <div class="c_details_img">
+                        <img class="img-fluid" src="assets/img/hero_bg.jpg" alt="">
+                    </div>
+                    <div class="c-details-list mt-3">
+                        <mat-tab-group  color="primary">
+                            <mat-tab label="Description" color="blue">
+                                <div class="tab-content">
+                                    <!-- Description content goes here -->
+                                    <p>Embark on a transformative learning journey with our Angular course, designed to empower you in building dynamic and robust web applications. Angular, developed and maintained by Google, is a leading front-end framework known for its flexibility, scalability, and ease of development. In this course, you will start with the basics, mastering the core concepts of Angular, including components, modules, services, and dependency injection. As you progress, you'll delve into more advanced topics such as reactive programming with RxJS, routing, and state management. Our hands-on approach ensures that you not only understand the theory but also gain practical experience in building real-world applications. Whether you're a beginner exploring the world of front-end development or an experienced developer looking to enhance your skill set, our Angular course is your gateway to mastering this powerful framework and elevating your web development expertise.</p>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Outline">
+                                <mat-card class="custom-card">
+                                    <mat-card-content>
+                                        <p>Intro</p>
+                                        <!-- Add more content as needed -->
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="custom-card">
+                                    <mat-card-content>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <!-- Add more content as needed -->
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="custom-card">
+                                    <mat-card-content>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <!-- Add more content as needed -->
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="custom-card">
+                                    <mat-card-content>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <!-- Add more content as needed -->
+                                    </mat-card-content>
+                                </mat-card>
+                                <mat-card class="custom-card">
+                                    <mat-card-content>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <!-- Add more content as needed -->
+                                    </mat-card-content>
+                                </mat-card>
+                            </mat-tab>
+                            
+                        </mat-tab-group>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Trainer’s Name
+                            <span class="badge bg-primary">George Mathews</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Outline
+                            <span class="badge bg-success">5</span>
+                        </li>
+                       
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Duration
+                            <span class="badge bg-warning">15 hours</span>
+                        </li>
+                    </ul>
+                    <a class="main_btn" href="/enroll/lesson">Enroll the Course</a>
+                    <p>Rate Now</p>
+                    <div class="star-rating">
+                       
+                        <mat-icon *ngFor="let i of [1, 2, 3, 4, 5]"
+                                  (click)="starRating = i"
+                                  [class.star-selected]="starRating >= i" >
+                          star
+                        </mat-icon>
+                      </div>
+                      
+                      
+                      
+              
+  
+  
+
+  
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+   
+<app-footer></app-footer>
+
+
+
+
+
+</body>

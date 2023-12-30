@@ -1,0 +1,43 @@
+<app-navprof></app-navprof>
+<div class="form">
+    <h2>Add New Lesson</h2>
+    <form (ngSubmit)="submitForm()">
+        <label for="colorSelect">Category:</label>
+        <select id="colorSelect" name="color">
+          <option value="Web Development">Web Development</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+         
+        </select>
+        <div>
+          <label for="lessonImage">Lesson Image:</label>
+          <input type="file" id="lessonImage" name="lessonImage" accept="image/*">
+        </div>
+      <div>
+        <label >Title:</label>
+        <input type="text" id="title"  name="title">
+      </div>
+      <div>
+        <label >Description:</label>
+        <textarea id="description"  name="description"></textarea>
+      </div>
+      
+      <div *ngFor="let lesson of lessons; let i = index" class="lesson-item">
+        <div>
+          <label for="outline{{ i }}">Outline:</label>
+          <input type="text" id="outline{{ i }}" [(ngModel)]="lesson.outline" name="outline{{ i }}">
+        </div>
+        <div>
+          <label for="lesson{{ i }}">Lesson:</label>
+          <textarea type="text" id="lesson{{ i }}" [(ngModel)]="lesson.lesson" name="lesson{{ i }}"></textarea>
+        </div>
+      </div>
+      
+      <button type="button" (click)="addLesson()" class="add-button">Add New Lesson</button>
+      <button type="button" *ngIf="lessons.length > 1" (click)="removeLastLesson()" class="remove-button">Remove Last Lesson</button>
+      <button type="submit">Submit Form</button>
+    </form>
+  </div>
+  
+  

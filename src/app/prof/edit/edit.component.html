@@ -1,0 +1,41 @@
+<div class="form">
+    <h2>Edit Lesson</h2>
+    <form  #form="ngForm">
+        <label for="colorSelect">Category:</label>
+        <select id="colorSelect" name="color">
+          <option value="Web Development">Web Development</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          
+        </select>
+        <div>
+          <label for="lessonImage">Lesson Image:</label>
+          <input type="file" id="lessonImage" name="lessonImage" accept="image/*">
+        </div>
+      <div>
+        <label >Title:</label>
+        <input type="text" id="title"  name="title">
+      </div>
+      <div>
+        <label >Description:</label>
+        <textarea id="description"  name="description"></textarea>
+      </div>
+      
+      <div  class="lesson-item">
+        <div>
+          <label >Outline:</label>
+          <input type="text">
+        </div>
+        <div>
+          <label >Lesson:</label>
+          <textarea type="text" ></textarea>
+        </div>
+      </div>
+     
+      <button type="button"  class="remove-button">Edit</button>
+      <button type="button"  class="remove-button" (click)=" closeDialog()">Cancel</button>
+      
+    </form>
+  </div>
+

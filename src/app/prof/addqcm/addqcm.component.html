@@ -1,0 +1,39 @@
+<app-navprof></app-navprof>
+<body>
+
+<!-- mcq-form.component.html -->
+<div class="container">
+    <h1>Multiple Choice Question</h1>
+    <form>
+        <label >Course id:</label>
+        <input type="text"  name="id" required>
+      <div *ngFor="let question of questions; let i = index" class="question">
+        <label for="questionText{{ i }}">Question:</label>
+        <input type="text" id="questionText{{ i }}" [(ngModel)]="question.questionText" name="questionText{{ i }}" required>
+  
+        <div class="options">
+          <div *ngFor="let option of question.options; let j = index">
+            <label for="option{{ i }}{{ j }}">Option {{ j + 1 }}:</label>
+            <input type="text" id="option{{ i }}{{ j }}" [ngModel]="option" (ngModelChange)="question.options[j] = $event" name="options" required>
+          </div>
+        </div>
+  
+        <div class="correct-answer">
+          <label for="correctAnswer{{ i }}">Correct Answer:</label>
+          <select id="correctAnswer{{ i }}" [(ngModel)]="question.correctAnswer" name="correctAnswer" required>
+            <option *ngFor="let option of question.options" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+        
+      
+      </div>
+      <button type="button" (click)="addOption()">Add Option</button>
+      <button type="button" (click)="addQuestion()">Add Question</button>
+      <button type="button" >Submit</button>
+    </form>
+  </div>
+  
+
+</body>
+
+

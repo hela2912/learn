@@ -1,0 +1,115 @@
+/* certification.component.css */
+
+.certificate-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #f5f5f5; /* Light background color */
+    text-align: center;
+  }
+  
+  .certificate-header {
+    background-color: #4285f4; /* Google blue */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .certificate-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .certificate-header h2 {
+    margin: 10px 0;
+    font-size: 32px;
+  }
+  
+  .course-details {
+    padding: 20px;
+  }
+  
+  .course-details h3 {
+    color: #4285f4;
+    margin: 10px 0;
+  }
+  
+  .issued-date {
+    margin-top: 20px;
+    font-style: italic;
+  }
+  
+  .signature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .instructor-signature img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .seal img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  
+  
+  .congratulations-message {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.congratulations-message p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.congratulations-message p:last-child {
+    margin-bottom: 0;
+}
+
+/* Additional styles for emphasis or decoration */
+.congratulations-message p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #009688;
+}
+
+.congratulations-message p em {
+    font-style: italic;
+    color: #ff5722;
+}
+.telecharger-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    margin-left: 850px;
+}
+
+.telecharger-btn:hover {
+    background-color: #2980b9;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,123 @@
+/* Add your custom styles here */
+.c-details-list {
+  margin-top: 20px;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.main-btn {
+  display: block;
+  width: 100%;
+}
+/* Add your custom styles here */
+.c_details_img {
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.c-details-list {
+  background-color: #f9f9f9; /* Background color for the details section */
+
+  border-radius: 8px;
+}
+.col-lg-4 {
+  background-color: #f9f9f9; /* Background color for the details section */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.main-btn {
+  display: block;
+  width: 100%;
+}
+/* Add your custom styles here */
+.c_details_img {
+  margin-bottom: 70px; /* Adjust margin as needed */
+}
+
+
+
+
+
+.list-group-item {
+  border: none;
+}
+
+.main-btn {
+  display: block;
+  width: 100%;
+  background-color: #2196F3;
+}
+.collapse{color:#f9f9f9}
+.course_details_area{
+  margin-top: 50px;
+}
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+.custom-card {
+  background-color: #ffffff; /* Set the desired background color (white in this case) */
+  margin-top: 20px;
+}
+.tab-content{
+  margin-top: 20px;
+}
+/* Add this style to your global styles or component styles */
+::ng-deep .mat-tab-label-active {
+  background-color: #2196F3; /* Set the desired blue color */
+  color: #ffffff; /* Set the text color for contrast */
+}
+.star-rating mat-icon {
+  cursor: pointer;
+  color: #ccc; /* Default color */
+}
+
+.star-rating .star-selected {
+  color: gold;
+}
+
+
+
+.main_btn {
+  display: inline-block;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+  border: 2px solid #4caf50; /* Green border */
+  margin-left: 80px;
+  margin-top: 10px;
+}
+
+.main_btn:hover {
+  background-color: #fff; /* White background color on hover */
+  color: #4caf50; /* Green text color on hover */
+}
+.star-rating mat-icon {
+  font-size: 29px; /* Adjust the size as needed */
+}
+
+.star-selected {
+  color: gold; /* Change the color for selected stars if desired */
+}
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust the gap between stars as needed */
+  margin-left: 20px;
+}

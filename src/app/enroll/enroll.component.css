@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 60px; /* Adjust top margin to leave space for the fixed navbar */
+  left: 0;
+  background-color: #171a1b;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidenav a {
+  padding: 10px 0px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  transition: 0.3s;
+ 
+  margin-right: 70px;
+}
+.sidenav p {
+  padding: 10px 0px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  transition: 0.3s;
+  margin-right: 70px;
+  color: #0b84e7
+}
+
+.sidenav a:hover {
+  color: #2196F3;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo i {
+  font-size: 36px;
+  margin-right: 10px;
+}
+
+.main-content {
+  margin-left: 100px;
+  padding: 0px;
+}
+
+
+.lesson-links li {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
