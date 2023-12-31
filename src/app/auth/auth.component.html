@@ -1,48 +1,47 @@
 
 <body>
-    
+
 <input type="checkbox" id="click">
-    <div class="main-container">
-        <div class="form-container">
-            
-            <div class="sign-in">
-                <form action="#">
-                    <h1>Sign in</h1>
-                   
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <a href="#" class="fogot-pass">Forgot your password?</a>
-                    <button>Sign In</button>
-                </form>
-            </div>
+<div class="main-container">
+  <div class="form-container">
 
-            <div class="sign-up">
-                <form action="#">
-                    <h1>Create Account</h1>
-                    
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <input type="confirmpassword" placeholder="Confirm Password" />
-                    <button>Sign Up</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="slide-container">
-            <div class="slide-panel">
-                <div class="slide-left">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <label for="click" class="slide">Sign Up</label>   
-                </div>
-                <div class="slide-right">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <label for="click" class="slide">Sign In</label>
-                </div>
-            </div>
-        </div>
-
+    <div class="sign-in">
+      <form action="#">
+        <h1>Sign in</h1>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <a href="#" class="fogot-pass">Forgot your password?</a>
+        <button>Sign In</button>
+      </form>
     </div>
+
+    <div class="sign-up">
+      <form action="#" (ngSubmit)="onRegister()">
+        <h1>Create Account</h1>
+
+        <input type="text"  placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <input type="confirmPassword" placeholder="Confirm Password" />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="slide-container">
+    <div class="slide-panel">
+      <div class="slide-left">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start journey with us</p>
+        <label for="click" class="slide">Sign Up</label>
+      </div>
+      <div class="slide-right">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with us please login with your personal info</p>
+        <label for="click" class="slide">Sign In</label>
+      </div>
+    </div>
+  </div>
+
+</div>
 </body>

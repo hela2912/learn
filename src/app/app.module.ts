@@ -29,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CertificationComponent } from './certification/certification.component';
 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EditComponent } from './prof/edit/edit.component';
 import { AddqcmComponent } from './prof/addqcm/addqcm.component';
@@ -53,10 +54,12 @@ import { AddqcmComponent } from './prof/addqcm/addqcm.component';
     QcmComponent,
     CertificationComponent,
     EditComponent,
-    AddqcmComponent
-   
-   
-    
+    AddqcmComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { AddqcmComponent } from './prof/addqcm/addqcm.component';
     MatSidenavModule,
     MatListModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

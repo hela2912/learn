@@ -34,8 +34,7 @@ const routes: Routes = [
   children: [
     { path: 'lesson', component: LessonComponent },
     { path: 'qcm', component: QcmComponent },
-   
-  ],},
+     ],},
   { path: 'login', component: LoginprofComponent},
   { path: 'manage', component: ManagecoursesComponent},
   { path: 'add', component: AddcoursComponent},
