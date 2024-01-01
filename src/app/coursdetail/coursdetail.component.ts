@@ -6,8 +6,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./coursdetail.component.css']
 })
 export class CoursdetailComponent    {
-  
- 
+
+
   starRating = 0;
+  enrollInCourse(){
+
+  }
+
   }
 

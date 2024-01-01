@@ -10,9 +10,14 @@
             <a href="/home" class="nav-item nav-link">Home</a>
             <a href="/about" class="nav-item nav-link active">About</a>
             <a href="/courses" class="nav-item nav-link">Courses</a>
-           
+
             <a href="/contact" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="/auth" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        <div routerLinkActive="active" *ngIf="!userIsAuthenticated">
+                  <a href="/auth" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+        <div routerLinkActive="active" *ngIf="userIsAuthenticated">
+          <a  class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" (click)="onLogout()">Log Out </a>
+        </div>
     </div>
 </nav>
