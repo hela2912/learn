@@ -4,13 +4,14 @@ import {User} from "../model/user";
 import {AuthData} from "../model/auth-data";
 import {BehaviorSubject, Subject} from "rxjs";
 import { Router } from '@angular/router';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUri="http://localhost:5000/api/auth";
+  private baseUri=environment.baseUri+"/auth";
   private isAuthenticated = false;
   private token: any="";
   private tokenTimer: any;
@@ -49,7 +50,7 @@ export class AuthService {
           this.userId = response.id;
           this.authStatusListener.next(true);
           const now = new Date();
-          const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+          const expirationDate = new Date(now.getTime() + expiresInDuration );
           this.saveAuthData(this.token, expirationDate, this.userId);
           this.router.navigate(["/home"])
           console.log(localStorage.getItem("token"))
@@ -62,17 +63,26 @@ export class AuthService {
     const authInformation = this.getAuthData();
 
     if (!authInformation) {
-      return;
+      this.clearAuthData()
+
+      return ;
     }
     const now = new Date();
     const expiresIn = authInformation.expirationDate.getTime() - now.getTime();
-
+    console.log(expiresIn)
+    if(expiresIn<0)
+    {
+      this.clearAuthData()
+      return ;
+    }
     if (expiresIn > 0) {
       this.token = authInformation.token;
       this.isAuthenticated = true;
       this.setAuthTimer(expiresIn / 1000);
       this.authStatusListener.next(true);
     }
+    return true;
+
   }
   private getAuthData() {
     const token = localStorage.getItem("token");

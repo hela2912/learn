@@ -20,8 +20,10 @@ export class AuthComponent implements OnInit{
   ngOnInit(): void {
     const token=localStorage.getItem("token")
     if(token){
-      this.router.navigate(["/home"])
-      console.log(token)
+      this.router.navigate(["/home"]).then(r => {
+        console.log(token)
+      })
+
     }
     }
   onLogin(){

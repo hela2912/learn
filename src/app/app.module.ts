@@ -11,7 +11,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { CategoryComponent } from './category/category.component';
-import { CoursdetailComponent } from './coursdetail/coursdetail.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { LoginprofComponent } from './prof/loginprof/loginprof.component';
 import { ManagecoursesComponent } from './prof/managecourses/managecourses.component';
@@ -33,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { EditComponent } from './prof/edit/edit.component';
 import { AddqcmComponent } from './prof/addqcm/addqcm.component';
+import {CourDetailComponent} from "./coursdetail/cour-detail.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,7 @@ import { AddqcmComponent } from './prof/addqcm/addqcm.component';
     FooterComponent,
     AboutComponent,
     CategoryComponent,
-    CoursdetailComponent,
+    CourDetailComponent,
     EnrollComponent,
     LoginprofComponent,
     ManagecoursesComponent,

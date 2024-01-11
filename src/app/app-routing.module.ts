@@ -7,7 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { CoursdetailComponent } from './coursdetail/coursdetail.component';
+import { CourDetailComponent } from './coursdetail/cour-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { LoginprofComponent } from './prof/loginprof/loginprof.component';
@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'nav', component: NavbarComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'about', component: AboutComponent},
-  { path: 'detail', component: CoursdetailComponent},
-  { path: 'categorie', component: CategoryComponent},
+  { path: 'detail', component: CourDetailComponent},
+  { path: 'category', component: CategoryComponent},
   { path: 'enroll', component: EnrollComponent,
   children: [
     { path: 'lesson', component: LessonComponent },
@@ -38,9 +38,9 @@ const routes: Routes = [
   { path: 'login', component: LoginprofComponent},
   { path: 'manage', component: ManagecoursesComponent},
   { path: 'add', component: AddcoursComponent},
-  { path: 'navprof', component: NavprofComponent},
-  { path: 'certificat', component: CertificationComponent},
-  { path: 'addqcm', component: AddqcmComponent},
+  { path: 'navProf', component: NavprofComponent},
+  { path: 'certificate', component: CertificationComponent},
+  { path: 'addQCM', component: AddqcmComponent},
 ];
 
 @NgModule({
