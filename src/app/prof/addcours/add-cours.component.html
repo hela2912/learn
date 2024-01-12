@@ -8,21 +8,21 @@
           <option value="Graphic Design">Graphic Design</option>
           <option value="Data Science">Data Science</option>
           <option value="Digital Marketing">Digital Marketing</option>
-         
+
         </select>
         <div>
-          <label for="lessonImage">Lesson Image:</label>
-          <input type="file" id="lessonImage" name="lessonImage" accept="image/*">
+          <label for="courseImage">Lesson Image:</label>
+          <input type="file" id="courseImage" name="courseImage" (change)="onFileSelected($event)" accept="image/*">
         </div>
       <div>
         <label >Title:</label>
-        <input type="text" id="title"  name="title">
+        <input type="text" id="title" [(ngModel)]="courseName" name="title">
       </div>
       <div>
         <label >Description:</label>
-        <textarea id="description"  name="description"></textarea>
+        <textarea id="description" [(ngModel)]="courseDescription" name="description"></textarea>
       </div>
-      
+
       <div *ngFor="let lesson of lessons; let i = index" class="lesson-item">
         <div>
           <label for="outline{{ i }}">Outline:</label>
@@ -33,11 +33,10 @@
           <textarea type="text" id="lesson{{ i }}" [(ngModel)]="lesson.lesson" name="lesson{{ i }}"></textarea>
         </div>
       </div>
-      
+
       <button type="button" (click)="addLesson()" class="add-button">Add New Lesson</button>
       <button type="button" *ngIf="lessons.length > 1" (click)="removeLastLesson()" class="remove-button">Remove Last Lesson</button>
       <button type="submit">Submit Form</button>
     </form>
   </div>
-  
-  
+

@@ -12,7 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { LoginprofComponent } from './prof/loginprof/loginprof.component';
 import { ManagecoursesComponent } from './prof/managecourses/managecourses.component';
-import { AddcoursComponent } from './prof/addcours/addcours.component';
+import { AddCoursComponent } from './prof/addcours/add-cours.component';
 import { NavprofComponent } from './prof/navprof/navprof.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { QcmComponent } from './qcm/qcm.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
      ],},
   { path: 'login', component: LoginprofComponent},
   { path: 'manage', component: ManagecoursesComponent},
-  { path: 'add', component: AddcoursComponent},
+  { path: 'add', component: AddCoursComponent},
   { path: 'navProf', component: NavprofComponent},
   { path: 'certificate', component: CertificationComponent},
   { path: 'addQCM', component: AddqcmComponent},

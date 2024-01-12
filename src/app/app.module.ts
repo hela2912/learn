@@ -14,7 +14,7 @@ import { CategoryComponent } from './category/category.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { LoginprofComponent } from './prof/loginprof/loginprof.component';
 import { ManagecoursesComponent } from './prof/managecourses/managecourses.component';
-import { AddcoursComponent } from './prof/addcours/addcours.component';
+import { AddCoursComponent } from './prof/addcours/add-cours.component';
 import { FormsModule } from '@angular/forms';
 import { NavprofComponent } from './prof/navprof/navprof.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,13 +26,12 @@ import { QcmComponent } from './qcm/qcm.component';
 import {MatListModule} from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CertificationComponent } from './certification/certification.component';
-
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { EditComponent } from './prof/edit/edit.component';
 import { AddqcmComponent } from './prof/addqcm/addqcm.component';
 import {CourDetailComponent} from "./coursdetail/cour-detail.component";
+import {AuthInterceptorInterceptor} from "./shared/auth-interceptor.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +47,7 @@ import {CourDetailComponent} from "./coursdetail/cour-detail.component";
     EnrollComponent,
     LoginprofComponent,
     ManagecoursesComponent,
-    AddcoursComponent,
+    AddCoursComponent,
     NavprofComponent,
     LessonComponent,
     QcmComponent,
@@ -75,7 +74,10 @@ import {CourDetailComponent} from "./coursdetail/cour-detail.component";
     MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptorInterceptor,
+    multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

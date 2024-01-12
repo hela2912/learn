@@ -10,10 +10,8 @@ import {AuthData} from "../shared/model/auth-data";
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit{
-
   user: User = new User()
   authData:AuthData=new AuthData();
-
   constructor(private authService: AuthService, private router: Router) {
   }
 

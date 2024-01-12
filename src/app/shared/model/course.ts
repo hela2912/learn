@@ -10,5 +10,6 @@ export class Course {
   price!:number;
   instructor!:User;
   description!:string;
-  courseImage!:string
+  courseImage!:File;
+  lessons!:[]
 }
