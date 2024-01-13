@@ -18,21 +18,10 @@ export class NavbarComponent implements OnInit,OnDestroy{
   ngOnInit(): void {
     this.authService.autoAuthUser()
     this.userIsAuthenticated = this.authService.getIsAuth();
-    console.log(this.userIsAuthenticated)
-    if (this.userIsAuthenticated) {
-      console.log("user authenticated 1")
-    }
-
-    else {
-      console.log("user mouch auth")
-    }
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
-        if (this.userIsAuthenticated) {
-          console.log("use mar7be")
-        }
       });
   }
 

@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../environments/environment";
+import {CourseService} from "../shared/services/course.service";
+import {Course} from "../shared/model/course";
+import {EnrollService} from "../shared/services/enroll.service";
+import {UserCourse} from "../shared/model/user-course";
 
 @Component({
   selector: 'app-coursdetail',
@@ -8,15 +13,44 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CourDetailComponent implements OnInit{
    courseId!:string | null;
-  constructor(private activateRoute:ActivatedRoute) {
+  imageUri=environment.imageUri
+  course!:Course;
+  description!:string;
+  instructorName!:string;
+  duration!:number
+  enroll!:UserCourse;
+
+  constructor(private activateRoute:ActivatedRoute,private courseService:CourseService,private userCourseService:EnrollService) {
   }
   ngOnInit(): void {
     this.courseId=this.activateRoute.snapshot.queryParamMap.get('courseId')
-    console.log(this.courseId)
+    this.getCourse(this.courseId)
   }
 
-  starRating = 0;
-  EnrollIn(){
+  getCourse(courseId: string | null){
+      this.courseService.getOneCourse(courseId).subscribe(
+        course=>{
+          this.course=course
+          console.log(this.course)
+          this.description=this.course.description
+          this.instructorName=this.course.instructor.username
+          this.duration=this.course.TimeToCompleteTheCourse
 
+        },error => {
+          console.log(error.error.message)
+        }
+      )
+  }
+  starRating = 0;
+  userId=localStorage.getItem('userId')
+  EnrollIn(){
+      this.userCourseService.enrollInCourse(this.course._id,
+        this.userId).subscribe(
+          res=>{
+            console.log("mar7be")
+          },error => {
+          console.log(error.error.message)
+        }
+      )
   }
 }

@@ -53,7 +53,6 @@ export class AuthService {
           const expirationDate = new Date(now.getTime() + expiresInDuration );
           this.saveAuthData(this.token, expirationDate, this.userId);
           this.router.navigate(["/home"])
-          console.log(localStorage.getItem("token"))
         }
       },error => {
         console.log(error.error.message)
@@ -64,12 +63,10 @@ export class AuthService {
 
     if (!authInformation) {
       this.clearAuthData()
-
       return ;
     }
     const now = new Date();
     const expiresIn = authInformation.expirationDate.getTime() - now.getTime();
-    console.log(expiresIn)
     if(expiresIn<0)
     {
       this.clearAuthData()

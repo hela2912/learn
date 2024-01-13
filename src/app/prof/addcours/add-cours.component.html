@@ -2,13 +2,11 @@
 <div class="form">
     <h2>Add New Lesson</h2>
     <form (ngSubmit)="submitForm()">
-        <label for="colorSelect">Category:</label>
-        <select id="colorSelect" name="color">
-          <option value="Web Development">Web Development</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="Data Science">Data Science</option>
-          <option value="Digital Marketing">Digital Marketing</option>
-
+        <label for="categorySelect">Category:</label>
+        <select id="categorySelect" name="category" [(ngModel)]="selectedCategory">
+          <option *ngFor="let category of categories" [ngValue]="category">
+            {{ category.categoryName }}
+          </option>
         </select>
         <div>
           <label for="courseImage">Lesson Image:</label>
@@ -22,20 +20,32 @@
         <label >Description:</label>
         <textarea id="description" [(ngModel)]="courseDescription" name="description"></textarea>
       </div>
+      <div>
+        <label >Time to complete The Course:</label>
+        <input type="number" id="timeToCompleteTheCourse" [(ngModel)]="TimeToCompleteTheCourse" name="TimeToCompleteTheCourse">
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="freeOrNot"  (click)="selectedValue='true'" value="true"> Yes
+        </label>
+        <label>
+          <input type="radio" name="freeOrNot" (click)="selectedValue='false'" value="false"> No
+        </label>
 
-      <div *ngFor="let lesson of lessons; let i = index" class="lesson-item">
+      </div>
+      <div *ngFor="let lesson of listLesson; let i = index" class="lesson-item">
         <div>
           <label for="outline{{ i }}">Outline:</label>
-          <input type="text" id="outline{{ i }}" [(ngModel)]="lesson.outline" name="outline{{ i }}">
+          <input type="text" id="outline{{ i }}" [(ngModel)]="lesson.lessonName" name="outline{{ i }}">
         </div>
         <div>
           <label for="lesson{{ i }}">Lesson:</label>
-          <textarea type="text" id="lesson{{ i }}" [(ngModel)]="lesson.lesson" name="lesson{{ i }}"></textarea>
+          <textarea type="text" id="lesson{{ i }}" [(ngModel)]="lesson.lessonContent" name="lesson{{ i }}"></textarea>
         </div>
       </div>
 
       <button type="button" (click)="addLesson()" class="add-button">Add New Lesson</button>
-      <button type="button" *ngIf="lessons.length > 1" (click)="removeLastLesson()" class="remove-button">Remove Last Lesson</button>
+      <button type="button" *ngIf="listLesson.length > 1" (click)="removeLastLesson()" class="remove-button">Remove Last Lesson</button>
       <button type="submit">Submit Form</button>
     </form>
   </div>

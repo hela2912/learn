@@ -24,11 +24,9 @@ export class CoursesComponent implements OnInit{
     this.courseService.getCourse().subscribe((res)=>{
       this.response=res;
       this.courses=this.response.courses
-      console.log(this.courses)
     })
   }
   NavigateToDetails(courseId:string){
-    console.log(courseId)
     this.router.navigate(['/detail'],
       {
         queryParams:{courseId:courseId}

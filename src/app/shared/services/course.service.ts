@@ -23,4 +23,14 @@ export class CourseService {
     addLessons(lessons:any,courseId:any):Observable<any>{
     return this.http.put(this.baseUri+'/addLessons/'+courseId,lessons)
     }
+    getInstructorCourses():Observable<Course[]>{
+    return this.http.get<Course[]>(this.baseUri+'/getInstructorCourses')
+    }
+
+  getOneCourse(courseId: string | null):Observable<Course>{
+    return this.http.get<Course>(this.baseUri+"/getCourse/"+courseId)
+    }
+    deleteCourse(courseId:string){
+      return this.http.delete(this.baseUri+"/deleteCourse/"+courseId)
+    }
 }

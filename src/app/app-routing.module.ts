@@ -21,6 +21,7 @@ import { AddqcmComponent } from './prof/addqcm/addqcm.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'auth', component: AuthComponent },
   { path: 'home', component: HomeComponent },
   { path: 'courses', component: CoursesComponent},
