@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {CourseService} from "../shared/services/course.service";
 import {Course} from "../shared/model/course";
 import {EnrollService} from "../shared/services/enroll.service";
 import {UserCourse} from "../shared/model/user-course";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-coursdetail',
@@ -20,7 +21,7 @@ export class CourDetailComponent implements OnInit{
   duration!:number
   enroll!:UserCourse;
 
-  constructor(private activateRoute:ActivatedRoute,private courseService:CourseService,private userCourseService:EnrollService) {
+  constructor(private router:Router,private dialog: MatDialog,private activateRoute:ActivatedRoute,private courseService:CourseService,private userCourseService:EnrollService) {
   }
   ngOnInit(): void {
     this.courseId=this.activateRoute.snapshot.queryParamMap.get('courseId')
@@ -44,10 +45,17 @@ export class CourDetailComponent implements OnInit{
   starRating = 0;
   userId=localStorage.getItem('userId')
   EnrollIn(){
+    if(!localStorage.getItem("token"))
+    {
+      this.router.navigate(['/auth'])
+    }
       this.userCourseService.enrollInCourse(this.course._id,
         this.userId).subscribe(
+
           res=>{
-            console.log("mar7be")
+            window.alert('course is added')
+            this.router.navigate(['/enroll'])
+
           },error => {
           console.log(error.error.message)
         }

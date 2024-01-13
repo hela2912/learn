@@ -4,6 +4,9 @@ import {CourseService} from "../../shared/services/course.service";
 import {valueOf} from "file-saver";
 import {Category} from "../../shared/model/category";
 import {CategoryService} from "../../shared/services/category.service";
+import {EditComponent} from "../edit/edit.component";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addcours',
@@ -20,10 +23,14 @@ export class AddCoursComponent implements OnInit {
   listLesson: any[] = []
   selectedValue: string = "true"
 
-  constructor(private courseService: CourseService, private categoryService: CategoryService) {
+  constructor(private router:Router ,private dialog: MatDialog,private courseService: CourseService, private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem('role')==="Student")
+    {
+      this.router.navigate(['/home'])
+    }
     this.getCategories()
   }
 
@@ -45,6 +52,7 @@ export class AddCoursComponent implements OnInit {
 
   addLesson() {
     this.listLesson.push({lessonName: '', lessonContent: ''});
+
     console.log(this.selectedCategory._id)
   }
 
@@ -73,10 +81,10 @@ export class AddCoursComponent implements OnInit {
     this.courseService.createCourse(formData).subscribe(
       (response: any) => {
         courseId = response.courseId
-        console.log(this.listLesson)
         this.courseService.addLessons(this.listLesson, courseId).subscribe(
           res => {
-            console.log(res)
+             window.alert('course is added');
+            this.router.navigate(['/manage'])
           },
           error => {
             console.log(error.error.message)
@@ -86,5 +94,14 @@ export class AddCoursComponent implements OnInit {
         console.log(error.error.message)
       }
     )
+  }
+  openAddAgentDialog() {
+    const dialogRef = this.dialog.open(EditComponent, {
+      width: '70%',
+      position: {top: '-25%', left: '15%'},
+      backdropClass: 'custom-backdrop', // Add a custom backdrop class if needed
+      panelClass: 'custom-dialog-container', // Add a custom panel class if needed
+    });
+
   }
 }

@@ -15,6 +15,7 @@ export class AuthService {
   private isAuthenticated = false;
   private token: any="";
   private tokenTimer: any;
+  private role:any;
   private userId: string="";
   private authStatusListener = new Subject<boolean>();
   public err = new BehaviorSubject<any>(null);
@@ -49,12 +50,14 @@ export class AuthService {
           this.isAuthenticated = true;
           this.userId = response.id;
           this.authStatusListener.next(true);
+          this.role=response.role;
           const now = new Date();
           const expirationDate = new Date(now.getTime() + expiresInDuration );
-          this.saveAuthData(this.token, expirationDate, this.userId);
+          this.saveAuthData(this.token, expirationDate, this.userId,this.role);
           this.router.navigate(["/home"])
         }
       },error => {
+        window.alert(error.error.message)
         console.log(error.error.message)
       })
   }
@@ -77,6 +80,7 @@ export class AuthService {
       this.isAuthenticated = true;
       this.setAuthTimer(expiresIn / 1000);
       this.authStatusListener.next(true);
+      this.role=authInformation.role
     }
     return true;
 
@@ -85,13 +89,15 @@ export class AuthService {
     const token = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expiration");
     const userId = localStorage.getItem("userId");
+    const role=localStorage.getItem("role")
     if (!token || !expirationDate) {
       return;
     }
     return {
       token: token,
       expirationDate: new Date(expirationDate),
-      userId: userId
+      userId: userId,
+      role:role
     }
   }
   logout() {
@@ -108,10 +114,11 @@ export class AuthService {
       this.logout();
     }, duration * 1000);
   }
-  private saveAuthData(token: string, expirationDate: Date, userId: string) {
+  private saveAuthData(token: string, expirationDate: Date, userId: string,role:string) {
     localStorage.setItem("token", token);
     localStorage.setItem("expiration", expirationDate.toISOString());
     localStorage.setItem("userId", userId);
+    localStorage.setItem('role',role)
   }
   private clearAuthData() {
     localStorage.removeItem("token");

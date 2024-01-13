@@ -19,7 +19,6 @@ export class AuthComponent implements OnInit{
     const token=localStorage.getItem("token")
     if(token){
       this.router.navigate(["/home"]).then(r => {
-        console.log(token)
       })
 
     }
@@ -30,12 +29,14 @@ export class AuthComponent implements OnInit{
   onRegister() {
     this.user.role = "Student"
     this.authService.register(this.user).subscribe(res => {
-      console.log("welcome" + JSON.stringify(res))
+      window.alert("Welcome New user :" + this.user.username);
+
+
     }, error => {
       const errors = error.error.message;
-      console.log(JSON.stringify(this.user));
+      window.alert("error:"+errors);
 
-      console.log("nope: " + errors)
+
     })
   }
 
